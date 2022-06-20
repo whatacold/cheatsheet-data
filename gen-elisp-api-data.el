@@ -32,4 +32,4 @@
         (insert "}")
         (save-some-buffers 'dont-ask)))))
 
-(gen-data "./elisp-api.el" "./data/elisp-api-data.json")
+(gen-data "./elisp-api.el" "./data/elisp-api-data.js")
