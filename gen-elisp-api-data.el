@@ -7,8 +7,7 @@
     (with-current-buffer (find-file-noselect el-fname)
       (goto-char (point-min))
       (let (category)
-        (ignore-errors
-        ;; (progn
+        (ignore-error end-of-file
           (setq category (read (current-buffer)))
 
           (while category
