@@ -1,9 +1,14 @@
-(defun gen-data (el-fname json-fname)
+(require 'ring)
+(require 'seq)
+
+(defun gen-data (el-fname js-fname)
+  "Generate a .js file `JS-FNAME' based on data in `EL-FNAME'."
   (let (json-data)
     (with-current-buffer (find-file-noselect el-fname)
       (goto-char (point-min))
       (let (category)
         (ignore-errors
+        ;; (progn
           (setq category (read (current-buffer)))
 
           (while category
@@ -25,7 +30,7 @@
     (when json-data
       ;; (message "json data: %s" json-data)
 
-      (with-current-buffer (find-file-noselect json-fname)
+      (with-current-buffer (find-file-noselect js-fname)
         (erase-buffer)
         (insert "export default function data() { return ")
         (insert (json-serialize (vconcat (reverse json-data))))
