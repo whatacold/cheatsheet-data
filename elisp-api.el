@@ -98,22 +98,26 @@
                    capitalize
                    upcase-initials))
 
-;; A “symbol” is an object with a unique name.
 (:name "Symbol"
+       :description "A symbol is an object with a unique name, it has 4 components: a name, a variable value, a function definition and a property list."
        :functions (symbolp
-                   symbol-name
                    make-symbol
                    gensym
                    intern
                    intern-soft
                    mapatoms
                    unintern
+
+                   symbol-name
+                   symbol-value
+                   symbol-function
+
+                   ;; plist
                    get
                    put
-                   symbol-plist
                    setplist
-                   symbol-value
-                   symbol-function))
+                   symbol-plist))
+
 
 (:name "Cons Cell, Atom and List"
        :functions (consp
@@ -177,15 +181,12 @@
                    lax-plist-put
                    plist-member))
 
-;; sequence
-;; - list
-;; - array
-;;   - vector
-;;   - string
-;;   - char-table
-;;   - bool-vector
-
 (:name "Sequence"
+       :description "The “sequence” type is the union of two other Lisp types: lists and arrays.
+
+4 types of arrays: vectors, strings, char-tables and bool-vectors.
+
+The common property that all sequences have is that each is an ordered collection of elements."
        :functions (sequencep
                    length
                    elt

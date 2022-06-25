@@ -21,7 +21,9 @@
                                       `(:name ,(symbol-name fn) :title ,docstr)))
                                   (plist-get category :functions)))
               ;; (message "category name: %s, items: %s" category-name items)
-              (setq json-data (cons `(:name ,category-name :apis ,(vconcat items))
+              (setq json-data (cons `(:name ,category-name
+                                            :apis ,(vconcat items)
+                                            :description ,(plist-get category :description))
                                     json-data)))
 
             (setq category (read (current-buffer)))))))
