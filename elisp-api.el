@@ -304,4 +304,88 @@ The common property that all sequences have is that each is an ordered collectio
                    hash-table-rehash-threshold
                    hash-table-size))
 
-                                        ; ("Scripting" (command-line-args command-line-args-left))
+;; (:name "Record"
+;;        :description "The purpose of records is to allow programmers to create objects with new types that are not built into Emacs."
+;;        :functions ())
+
+(:name "Control Structure"
+       :functions (progn
+                   prog1
+                   prog2
+
+                   ;; Conditional
+                   if
+                   when
+                   unless
+                   cond
+                   pcase
+
+                   not
+                   and
+                   or
+                   xor
+
+                   while
+                   dolist
+                   dotimes))
+
+(:name "Control Structure - Generators"
+       :description "A “generator” is a function that produces a potentially-infinite stream of values.
+
+Each time the function produces a value, it suspends itself and waits for a caller to request the next value."
+       :functions (iter-defun
+                    iter-lambda
+                    iter-yield
+                    iter-yield-from
+                    iter-next
+                    iter-close
+                    iter-do))
+
+;; (:name "Control Structure - error handling")
+
+(:name "Keymaps"
+       :functions (kbd
+                   make-sparse-keymap
+                   make-keymap
+                   copy-keymap
+
+                   keymap-parent
+                   set-keymap-parent
+                   make-composed-keymap
+
+                   define-prefix-command
+                   current-active-maps
+                   key-binding
+
+                   current-global-map
+                   current-local-map
+                   current-minor-mode-maps
+                   use-global-map
+                   use-local-map
+                   set-transient-map
+
+                   lookup-key
+                   local-key-binding
+                   global-key-binding
+                   minor-mode-key-binding
+
+                   define-key
+                   substitute-key-definition
+                   suppress-keymap
+
+                   command-remapping
+
+                   global-set-key
+                   global-unset-key
+                   local-set-key
+                   local-unset-key
+
+                   accessible-keymaps
+                   map-keymap
+                   where-is-internal
+                   describe-bindings)
+       :variables (global-map))
+
+;; (:name "Scripting"
+;;        :functions ()
+;;        :variables (command-line-args command-line-args-left))

@@ -1,5 +1,6 @@
 (require 'ring)
 (require 'seq)
+(require 'generator)
 
 (defun gen-data (el-fname js-fname)
   "Generate a .js file `JS-FNAME' based on data in `EL-FNAME'."
